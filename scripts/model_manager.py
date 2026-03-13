@@ -147,12 +147,41 @@ MODEL_FAMILIES = [
         "script": "get_ltx2.sh",
         "variants": [
             {
-                "name": "Standard (BF16 Checkpoint + FP4 Text Enc)", 
+                "name": "Standard (BF16 Checkpoint + FP4 Text Enc)",
                 "args": ["common", "checkpoint", "lora"]
             },
             {
-                "name": "FP8 (Compressed Checkpoint + FP4 Text Enc)", 
+                "name": "FP8 (Compressed Checkpoint + FP4 Text Enc)",
                 "args": ["common", "checkpoint fp8", "lora"]
+            }
+        ]
+    },
+
+    # --- FLUX.2 ---
+    {
+        "name": "FLUX.2 Dev - Text to Image",
+        "keywords": ["Flux2", "Dev"],
+        "exclude_keywords": ["Klein"],
+        "script": "get_flux2.sh",
+        "variants": [
+            {
+                "name": "BF16 GGUF (64.4 GB)",
+                "args": ["common", "dev bf16"]
+            },
+            {
+                "name": "Q8_0 GGUF (35 GB)",
+                "args": ["common", "dev q8"]
+            }
+        ]
+    },
+    {
+        "name": "FLUX.2 Klein 9B - Text to Image",
+        "keywords": ["Flux2", "Klein"],
+        "script": "get_flux2.sh",
+        "variants": [
+            {
+                "name": "BF16 GGUF (18.2 GB)",
+                "args": ["common", "klein bf16"]
             }
         ]
     },
