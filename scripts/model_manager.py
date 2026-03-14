@@ -144,6 +144,7 @@ MODEL_FAMILIES = [
     {
         "name": "LTX-2 (19B) - Video Generation",
         "keywords": ["LTX"],
+        "exclude_keywords": ["2.3"],
         "script": "get_ltx2.sh",
         "variants": [
             {
@@ -153,6 +154,23 @@ MODEL_FAMILIES = [
             {
                 "name": "FP8 (Compressed Checkpoint + FP4 Text Enc)",
                 "args": ["common", "checkpoint fp8", "lora"]
+            }
+        ]
+    },
+
+    # --- LTX-2.3 ---
+    {
+        "name": "LTX-2.3 (22B) - Video Generation",
+        "keywords": ["LTX2.3"],
+        "script": "get_ltx23.sh",
+        "variants": [
+            {
+                "name": "Dev (22B Checkpoint + Distilled LoRA + Upscalers)",
+                "args": ["common", "checkpoint", "lora", "upscalers"]
+            },
+            {
+                "name": "Distilled (22B Distilled Checkpoint + Upscalers)",
+                "args": ["common", "checkpoint distilled", "upscalers"]
             }
         ]
     },
